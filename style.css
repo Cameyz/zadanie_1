@@ -529,7 +529,7 @@
     outline: none;
 }
 
-/* ---------------- ZMIANA STYLU W PRZYPADKU KOWTY WIĘKSZEJ NIŻ LUB RÓWNEJ 800 --------------- */
+/* ---------------- ZMIANA STYLU W PRZYPADKU KWOTY WIĘKSZEJ NIŻ 800 --------------- */
 
 .ramka-transition {
     transition: border-color 1.5s ease-in-out; 
