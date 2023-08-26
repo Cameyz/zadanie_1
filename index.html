@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="screen-wrapper">
+      <div class="mbank-top-stripe"></div>
+      <div class="mbank-bottom-stripe"></div>
+
+      <div class="mbank-header">
+        <div class="mbank-header__text-two">Wprowadź kwotę</div>
+        <div class="mbank-header__text-one">Deklaracja Twojej wpłaty</div>
+      </div>
+
+      <div class="mbank-input__container">
+        <div id="declaration" class="ui-input mbank-input__inputfield ramka-transition" contenteditable="true"></div>
+<!-- 
+    contenteditable="true" zamienia mi DIV na pole klikalne do którego mogę wprowdzić wotę - krok pierwszy zrobiony :D 
+    EDIT.
+    
+    dodałem animację za pomoca trzeciej kalsy - ramka-transition
+
+-->
+          
+<script>
+        const kwotaBlok = document.getElementById('declaration'); // pobieram wartość z pola DIV z ID = Declaration
+        
+        /* 
+        używam metody addEventListener która nasłuchuje "zdarzenia" w określonym elemencie. W tym przypadku musze użyć zdarzenia o nazwie 'input' która jest wyzwalna gdy zawartość elementu (w tym wypadku DIV) jest zmieniana przez użytkownika (np. poprzez wprowadzenie tekstu).
+
+        w przypadku pojawienia się takiego zdarzenia, zostanie uruchomiona funkcja anonimowa. Poniżej zapisane jest to jako '() => { kod tutaj }'
+        
+        GDZIE:
+        
+        () oznacza, że funkcja nie przyjmuje żadnych "argumentów", czyli informacji, które możemy jej przekazać.
+        
+        => to taka strzałka, która mówi, "to jest coś, co chcemy zrobić".
+    
+        */
+        kwotaBlok.addEventListener('input', () => {
+        /*
+            to co wprowdza użytkownij jest "terścią" ciagiem znaków, żeby to obliczyć (zrobić fukncję która spełni warónek z liczbą) musze zmienić napis reprezntujący liczbę na liczbę
+            
+            parseFloat() to funkcja w języku JavaScript, która zmienia napis reprezentujący liczbę zmiennoprzecinkową na właściwą liczbę. W praktyce, funkcja ta "parsuje" (czyta) napis i stara się zrozumieć, co jest liczbą.
+        */
+        
+            const wprowadzonaKwota = parseFloat(kwotaBlok.textContent);
+
+                if (!isNaN(wprowadzonaKwota)) {
+            /* !isNaN sprawdz czy wprowadzona kowota jest liczbą lub czy może być na nią sparsowana */
+                    if (wprowadzonaKwota > 800) {
+                        kwotaBlok.classList.remove('mbank-input__inputfield'); 
+                        kwotaBlok.classList.add('mbank-input__inputfield_over800');
+                        // zmienia clasę css jeśli kowta jest większa niż 800
+                    } else {
+                        kwotaBlok.classList.remove('mbank-input__inputfield_over800');
+                        kwotaBlok.classList.add('mbank-input__inputfield');
+                        // po zmianie kwoty na mniejszą lub równą 800 przywołuję klasę z kolorem niebieskim
+                    }
+                }
+        });
+
+</script>
+          
+<!-- 
+
+    Dlaczego klasa jest tak zapisana? 
+    ODP: Tak wygląda odwołanie do dwóch klas dla jednego obiektu
+
+    Czy ID będzie istostne? 
+    ODP: TAK, dzięki niemu mogłem pobrać wartośc z pola
+
+    Jak wprowadzić kwotę do DIV-a? 
+    ODP: użyć contenteditable="true", podejrzewam jednak ze nie jest to dobre rozwiązanie do aplikacji bankomatu. Z chęcią wysłucham innych pomysłów :) 
+
+-->
+          
+      </div>
+
+      <div id="BUTTON_CANCEL" class="ui-button-action mbank-btn-F8">
+        <div class="arrow-left mbank-arrow-left"></div>
+        <div class="mbank-btn-text-left">Anuluj</div>
+        <div class="mbank-btn-shadow-left"></div>
+      </div>
+
+      <div id="BUTTON_ACCEPT" class="ui-button-action mbank-btn-F4">
+        <div class="arrow-right mbank-arrow-right"></div>
+        <div class="mbank-btn-text-right">Dalej</div>
+        <div class="mbank-btn-shadow-right"></div>
+      </div>
+    </div>
+  </body>
+</html>
