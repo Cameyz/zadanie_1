@@ -34,9 +34,9 @@
         const kwotaBlok = document.getElementById('declaration'); // pobieram wartość z pola DIV z ID = Declaration
         
         /* 
-        używam metody addEventListener która nasłuchuje "zdarzenia" w określonym elemencie. W tym przypadku musze użyć zdarzenia o nazwie 'input' która jest wyzwalna gdy zawartość elementu (w tym wypadku DIV) jest zmieniana przez użytkownika (np. poprzez wprowadzenie tekstu).
+        używam metody addEventListener która nasłuchuje "zdarzenia" w określonym elemencie. W tym przypadku muszę użyć zdarzenia o nazwie 'input' które jest wyzwalne gdy zawartość elementu (w tym wypadku DIV) jest zmieniana przez użytkownika (np. poprzez wprowadzenie tekstu).
 
-        w przypadku pojawienia się takiego zdarzenia, zostanie uruchomiona funkcja anonimowa. Poniżej zapisane jest to jako '() => { kod tutaj }'
+        w przypadku pojawienia się takiego zdarzenia, zostanie uruchomiona funkcja anonimowa. Poniżej zapisana jest jako '() => { kod tutaj }'
         
         GDZIE:
         
@@ -47,7 +47,7 @@
         */
         kwotaBlok.addEventListener('input', () => {
         /*
-            to co wprowdza użytkownij jest "terścią" ciagiem znaków, żeby to obliczyć (zrobić fukncję która spełni warónek z liczbą) musze zmienić napis reprezntujący liczbę na liczbę
+            to co wprowdza użytkownij jest "terścią" ciagiem znaków, żeby to obliczyć (zrobić fukncję która spełni warunek z liczbą) musze zmienić napis reprezntujący liczbę na liczbę
             
             parseFloat() to funkcja w języku JavaScript, która zmienia napis reprezentujący liczbę zmiennoprzecinkową na właściwą liczbę. W praktyce, funkcja ta "parsuje" (czyta) napis i stara się zrozumieć, co jest liczbą.
         */
@@ -59,7 +59,7 @@
                     if (wprowadzonaKwota > 800) {
                         kwotaBlok.classList.remove('mbank-input__inputfield'); 
                         kwotaBlok.classList.add('mbank-input__inputfield_over800');
-                        // zmienia clasę css jeśli kowta jest większa niż 800
+                        // zmienia klasę css jeśli kwota jest większa niż 800
                     } else {
                         kwotaBlok.classList.remove('mbank-input__inputfield_over800');
                         kwotaBlok.classList.add('mbank-input__inputfield');
@@ -79,7 +79,7 @@
     ODP: TAK, dzięki niemu mogłem pobrać wartośc z pola
 
     Jak wprowadzić kwotę do DIV-a? 
-    ODP: użyć contenteditable="true", podejrzewam jednak ze nie jest to dobre rozwiązanie do aplikacji bankomatu. Z chęcią wysłucham innych pomysłów :) 
+    ODP: użyć contenteditable="true", podejrzewam jednak że nie jest to dobre rozwiązanie do aplikacji bankomatu. Z chęcią wysłucham innych pomysłów :) 
 
 -->
           
